@@ -16,8 +16,8 @@ $message = "";
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $user = mysqli_real_escape_string($conn, $_POST['username']);
     $full = mysqli_real_escape_string($conn, $_POST['fullname']);
-    // Hash password for security
-    $pass = password_hash($_POST['password'], PASSWORD_DEFAULT);
+ 
+    $pass = mysqli_real_escape_string($conn, $_POST['password']);
     
     $sql = "INSERT INTO account (username, fullname, password) VALUES ('$user', '$full', '$pass')";
     

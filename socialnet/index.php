@@ -58,7 +58,19 @@ $current_fullname = $_SESSION['fullname'];
         </div>
 
         <h3 class="user-list-title">Other users in system</h3>
-        
+
+	<?php
+	// Lấy tổng số lượng user
+	$sql_count = "SELECT COUNT(*) as total FROM account";
+	$res_count = mysqli_query($conn, $sql_count);
+	$row_count = mysqli_fetch_assoc($res_count);
+	$total_users = $row_count['total'];
+	?>
+
+	<div style="background: #e7f3ff; color: #1877f2; padding: 15px; border-radius: 8px; margin-bottom: 20px; font-weight: 600; text-align: center;">
+    	🌐 SocialNet Community: Currently has <?php echo $total_users; ?> active members!
+	</div>	
+
         <?php
         // Lấy danh sách user khác (loại trừ chính mình)
         $sql = "SELECT username, fullname FROM account WHERE username != '$current_user'";
@@ -76,7 +88,7 @@ $current_fullname = $_SESSION['fullname'];
                             <?php echo htmlspecialchars($row['username']); ?>
                         </span>
                     </div>
-                    <a href="profile.php?owner=<?php echo urlencode($row['username']); ?>" 
+                    <a href="profile.php?owner=<?php echo urlencode($row['username']); ?>"
                        style="color: #1877f2; text-decoration: none; font-weight: 600; font-size: 0.95em;">
                        View Profile
                     </a>
@@ -90,3 +102,6 @@ $current_fullname = $_SESSION['fullname'];
     </div>
 </body>
 </html>
+
+
+
