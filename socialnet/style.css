@@ -1,0 +1,119 @@
+/* socialnet/style.css */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #1c1e21;
+}
+
+/* MenuBar navigation */
+nav {
+    width: 100%;
+    background: #ffffff;
+    padding: 15px 0;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav a {
+    text-decoration: none;
+    color: #65676b;
+    font-weight: 600;
+    margin: 0 15px;
+    padding-bottom: 5px;
+}
+
+nav a:hover { color: #1877f2; }
+
+nav a.active {
+    color: #1877f2;
+    border-bottom: 2px solid #1877f2;
+}
+
+/* Container & Cards */
+.container {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    width: 400px;
+    margin-top: 50px;
+}
+
+.profile-card {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    text-align: center;
+    width: 100%;
+    max-width: 600px;
+    margin: 30px auto;
+}
+
+/* Profile Elements */
+.avatar-placeholder {
+    width: 100px;
+    height: 100px;
+    background: #1877f2;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    text-transform: uppercase;
+}
+
+.description-box {
+    background: #f0f2f5;
+    padding: 20px;
+    border-radius: 8px;
+    min-height: 100px;
+    text-align: left;
+    margin-top: 10px;
+    line-height: 1.6;
+}
+
+.user-card {
+    background: #fff;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* Forms */
+input[type="text"], input[type="password"], textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #1877f2;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover { background-color: #166fe5; }
