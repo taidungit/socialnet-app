@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($row = mysqli_fetch_assoc($result)) {
         // Verify hashed password
-        if ($pass === $row['password']) {
+        if (password_verify($pass, $row['password'])) {
             $_SESSION['logged_in'] = true;
             $_SESSION['username'] = $row['username'];
             $_SESSION['fullname'] = $row['fullname'];

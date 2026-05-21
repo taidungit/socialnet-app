@@ -1,5 +1,7 @@
 <?php
 session_start();
+
+
 if (!isset($_SESSION['logged_in'])) { header("Location: signin.php"); exit(); }
 
 $conn = mysqli_connect("localhost", "taidung", "123456", "socialnet");

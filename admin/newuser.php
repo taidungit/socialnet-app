@@ -17,9 +17,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $user = mysqli_real_escape_string($conn, $_POST['username']);
     $full = mysqli_real_escape_string($conn, $_POST['fullname']);
  
-    $pass = mysqli_real_escape_string($conn, $_POST['password']);
+    $raw_pass = $_POST['password'];
     
+    $hashed_pass = password_hash($raw_pass, PASSWORD_BCRYPT);
+
+    $pass = mysqli_real_escape_string($conn, $hashed_pass);
+
     $sql = "INSERT INTO account (username, fullname, password) VALUES ('$user', '$full', '$pass')";
+    
     
     if (mysqli_query($conn, $sql)) {
         $message = "<p style='color: green;'>User created successfully!</p>";
