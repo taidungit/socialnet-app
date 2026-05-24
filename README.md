@@ -4,6 +4,9 @@
 - **Name**: Nguyen Tai Dung
 - **Student ID**: 1695191
 
+🛡️ Vulnerability Fixes (Mitigations vs Attack Branch)
+This branch directly fixes all critical vulnerabilities identified and exploited in the attack branch
+
 ## ⚠️ Important Notes for Grading
 - **Password Security (Branch: attack)**: The application has been upgraded to store passwords securely using cryptographic hashing (**Bcrypt** via PHP's `password_hash()`). Raw passwords are no longer visible in the database.
 - **Testing Credentials**: To facilitate immediate testing, all standard mock accounts in the provided `db.sql` share a common raw password: **`123456`**

@@ -89,10 +89,9 @@ $current_fullname = $_SESSION['fullname'];
                         </span>
                     </div>
                     
-                    <a href="profile.php?owner=<?php echo urlencode($row['username']); ?>"
-                       style="color: #1877f2; text-decoration: none; font-weight: 600; font-size: 0.95em;">
-                       View Profile
-                    </a>
+		    <a href="profile.php?owner=<?php echo urlencode($row['username']); ?>&csrf_token=<?php echo md5($row['username'] . session_id()); ?>" 
+				style="color: #1877f2; text-decoration: none; font-weight: 600; font-size: 0.95em;"> View Profile 
+		   </a>
 
                 </div>
                 <?php

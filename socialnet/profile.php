@@ -1,6 +1,18 @@
 <?php
 session_start();
 
+$owner = isset($_GET['owner']) ? mysqli_real_escape_string($conn, $_GET['owner']) : $_SESSION['username'];
+if ($owner !== $_SESSION['username']) {
+    $provided_token = isset($_GET['csrf_token']) ? $_GET['csrf_token'] : '';
+    $expected_token = md5($owner . session_id());
+    if ($provided_token !== $expected_token) {
+        http_response_code(403);
+        die("<h2 style='color:red; text-align:center; margin-top:50px;'>Access Denied! Manual URL modifications are not allowed (Missing or Invalid CSRF Token).</h2>");
+        exit();
+    }
+}
+
+
 if (!isset($_SESSION['logged_in'])) { header("Location: signin.php"); exit(); }
 
 $conn = mysqli_connect("localhost", "taidung", "123456", "socialnet");
@@ -52,12 +64,12 @@ if (!$data) {
             <label style="font-weight: 600; color: #65676b; font-size: 0.85em; text-transform: uppercase;">About Me</label>
             <div class="description-box">
                 <?php
-                    if (!empty($data['description'])) {
-                        echo nl2br($data['description']);
-                    } else {
-                        echo "<span style='color: #999; font-style: italic;'>No description provided yet.</span>";
-                    }
-                ?>
+    			if (!empty($data['description'])) {
+        			echo nl2br(htmlspecialchars($data['description'], ENT_QUOTES, 'UTF-8'));
+   			 } else {
+        			echo "<span style='color: #999; font-style: italic;'>No description provided yet.</span>";
+   			 }
+		?>
             </div>
         </div>
 

@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <h2>Admin: New User</h2>
         <?php echo $message; ?>
         <form method="POST">
-            <input type="text" name="username" placeholder="Username" required>
+            <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token'] ?? ''; ?>"> <input type="text" name="username" placeholder="Username" required>
             <input type="text" name="fullname" placeholder="Full Name" required>
             <input type="password" name="password" placeholder="Password" required>
             <button type="submit">Create Account</button>
