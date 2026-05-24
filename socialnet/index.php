@@ -88,10 +88,12 @@ $current_fullname = $_SESSION['fullname'];
                             <?php echo htmlspecialchars($row['username']); ?>
                         </span>
                     </div>
+                    
                     <a href="profile.php?owner=<?php echo urlencode($row['username']); ?>"
                        style="color: #1877f2; text-decoration: none; font-weight: 600; font-size: 0.95em;">
                        View Profile
                     </a>
+
                 </div>
                 <?php
             }

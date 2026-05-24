@@ -36,8 +36,8 @@ $row = mysqli_fetch_assoc($res);
         <?php echo $message; ?>
         <form method="POST">
             <label>Profile Description:</label>
-            <textarea name="description" rows="5" placeholder="Tell us about yourself..."><?php echo htmlspecialchars($row['description'] ?? ''); ?></textarea>
-            <button type="submit">Update Description</button>
+	    <textarea name="description" rows="5" placeholder="Tell us about yourself..."><?php echo $row['description'] ?? ''; ?></textarea>
+	    <button type="submit">Update Description</button>
         </form>
     </div>
 </body>

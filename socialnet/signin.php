@@ -9,7 +9,8 @@ if (!$conn) {
 $error = "";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $user = mysqli_real_escape_string($conn, $_POST['username']);
+    //$user = mysqli_real_escape_string($conn, $_POST['username']);
+    $user = $_POST['username'];	
     $pass = $_POST['password'];
 
     $sql = "SELECT * FROM account WHERE username = '$user'";
@@ -17,7 +18,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($row = mysqli_fetch_assoc($result)) {
         // Verify hashed password
-        if (password_verify($pass, $row['password'])) {
+	    if (password_verify($pass, $row['password'])) {
+	    //if ($pass === $row['password']) {
             $_SESSION['logged_in'] = true;
             $_SESSION['username'] = $row['username'];
             $_SESSION['fullname'] = $row['fullname'];

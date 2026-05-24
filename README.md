@@ -11,8 +11,10 @@
 - **Environment**: The application expects a MySQL server with a database named `socialnet`. Please update the connection parameters in the PHP files (or your database configuration file) if necessary to match your local testing environment.
 
 ## 🚀 Extra Features & Mitigations
-- System Statistics: The Home page features a live counter showing the total number of registered members in the system.
+- Password Hashing: All user passwords are now securely processed using strong cryptographic hashing algorithms before database storage, completely removing plain-text exposure.
+
 ## Project Structure
 - `/admin/newuser.php`: Admin form to add users (now automatically hashes new passwords).
 - `/socialnet/`: Contains all user-facing pages (signin, index, profile, etc.).
 - `db.sql`: Updated database export file containing pre-hashed account data.
+- csrf_test.html & csrf_admin.html are new files used to simulate and test Cross-Site Request Forgery (CSRF) attack vectors.- cookies.txt — Saved active session cookies data used during testing to simulate authenticated requests and session hijacking vectors

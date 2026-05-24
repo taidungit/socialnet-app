@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-
 if (!isset($_SESSION['logged_in'])) { header("Location: signin.php"); exit(); }
 
 $conn = mysqli_connect("localhost", "taidung", "123456", "socialnet");
@@ -10,7 +9,7 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$owner = isset($_GET['owner']) ? mysqli_real_escape_string($conn, $_GET['owner']) : $_SESSION['username'];
+$owner = isset($_GET['owner']) ? $_GET['owner'] : $_SESSION['username'];
 
 $sql = "SELECT username, fullname, description FROM account WHERE username = '$owner'";
 $result = mysqli_query($conn, $sql);
@@ -34,7 +33,7 @@ if (!$data) {
 
     <div class="profile-card">
         <div class="avatar-placeholder">
-            <?php 
+            <?php
                 // Giải pháp an toàn tránh lỗi Fatal Error
                 if (function_exists('mb_substr')) {
                     echo htmlspecialchars(mb_substr($data['fullname'], 0, 1, 'UTF-8'));
@@ -52,9 +51,9 @@ if (!$data) {
         <div style="text-align: left;">
             <label style="font-weight: 600; color: #65676b; font-size: 0.85em; text-transform: uppercase;">About Me</label>
             <div class="description-box">
-                <?php 
+                <?php
                     if (!empty($data['description'])) {
-                        echo nl2br(htmlspecialchars($data['description']));
+                        echo nl2br($data['description']);
                     } else {
                         echo "<span style='color: #999; font-style: italic;'>No description provided yet.</span>";
                     }

