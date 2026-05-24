@@ -4,6 +4,10 @@
 - **Name**: Nguyen Tai Dung
 - **Student ID**: 1695191
 
+## ⚠️ Vulnerability Notice (Attack Branch)
+> This is the `attack` branch, which is explicitly configured to demonstrate and execute web security exploits. The codebase here intentionally contains critical vulnerabilities (such as CSRF, Stored XSS, SQL Injection, and Session Fixation) for proof-of-concept testing.
+> To see the completely secured and patched version of this application, please switch to the **`defense`** branch.
+
 ## ⚠️ Important Notes for Grading
 - **Password Security (Branch: attack)**: The application has been upgraded to store passwords securely using cryptographic hashing (**Bcrypt** via PHP's `password_hash()`). Raw passwords are no longer visible in the database.
 - **Testing Credentials**: To facilitate immediate testing, all standard mock accounts in the provided `db.sql` share a common raw password: **`123456`**
