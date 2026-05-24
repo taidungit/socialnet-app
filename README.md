@@ -20,4 +20,3 @@
 - `/socialnet/`: Contains all user-facing pages (signin, index, profile, etc.).
 - `db.sql`: Updated database export file containing pre-hashed account data.
 - `csrf_test.html & csrf_admin.html` are new files used to simulate and test Cross-Site Request Forgery (CSRF) attack vectors.
-- `/socialnet/cookies.txt`: Saved active session cookies data used during testing to simulate authenticated requests and session hijacking vectors
