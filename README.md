@@ -12,10 +12,12 @@
 
 ## 🚀 Extra Features & Mitigations
 - Password Hashing: All user passwords are now securely processed using strong cryptographic hashing algorithms before database storage, completely removing plain-text exposure.
+- /socialnet/cookies.txt: Saved active session cookies data used during testing to simulate authenticated requests and session hijacking vectors
+- csrf_test.html & csrf_admin.html are new files used to simulate and test Cross-Site Request Forgery (CSRF) attack vectors.
 
 ## Project Structure
 - `/admin/newuser.php`: Admin form to add users (now automatically hashes new passwords).
 - `/socialnet/`: Contains all user-facing pages (signin, index, profile, etc.).
 - `db.sql`: Updated database export file containing pre-hashed account data.
 - `csrf_test.html & csrf_admin.html` are new files used to simulate and test Cross-Site Request Forgery (CSRF) attack vectors.
-- `cookies.txt`: Saved active session cookies data used during testing to simulate authenticated requests and session hijacking vectors
+- `/socialnet/cookies.txt`: Saved active session cookies data used during testing to simulate authenticated requests and session hijacking vectors
